@@ -12,10 +12,19 @@
     <div id="app">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         {{title}}
-        {{weatherData.name}}
-        <div>
-            <input type="text" placeholder="Location">
-            <button type="submit">Search</button>
+        
+        <div v-if="getWeatherData">
+            <input type="text" placeholder="Location" v-model="cityName">
+            <button type="submit" v-on:click="getWeatherData(cityName)">Search</button>
+            <div>
+                {{weatherDataCity.name}}<br>
+                {{weatherDataMain.temp}} &#8451;<br>
+                {{weatherDataWeather.main}}<br>
+                {{weatherDataWeather.description}}
+            </div>
+        </div>
+        <div v-if="!cityName">
+            <p>City not found</p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
