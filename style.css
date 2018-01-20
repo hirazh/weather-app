@@ -1,0 +1,41 @@
+#app {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5%;
+}
+
+#searchCity {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    padding-top: 2%;
+}
+
+.weatherData {
+    padding: 3%;
+}
+
+#infomsg {
+    font-size: 1.5em;
+}
+
+ul li {
+    font-size: 1.8 em
+}
+
+#temp {
+    font-size: 3em;
+}
+
+#name {
+    font-size: 2.5em;
+}
+#type {
+    font-size: 2em;
+}
+
+#desc {
+    font-size: 1.8em;
+}

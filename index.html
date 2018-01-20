@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <title>Weather App</title>
 </head>
+
 <body>
     <div id="app">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        {{title}}
-        
-        <div v-if="getWeatherData">
-            <input type="text" placeholder="Location" v-model="cityName">
-            <button type="submit" v-on:click="getWeatherData(cityName)">Search</button>
-            <div>
-                {{weatherDataCity.name}}<br>
-                {{weatherDataMain.temp}} &#8451;<br>
-                {{weatherDataWeather.main}}<br>
-                {{weatherDataWeather.description}}
+        <h1 class="title is-1">{{title}}</h1>
+
+        <div v-if="getWeatherData" class="field has-addons" id="searchCity">
+            <div class="control">
+                <input class="input is-primary" type="text" placeholder="Location" v-model="cityName">
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit" v-on:click="getWeatherData(cityName)">Search</button>
             </div>
         </div>
         <div v-if="!cityName">
-            <p>City not found</p>
+            <p id="infomsg" class="has-text-primary">Enter the city name</p>
+        </div>
+        <div class="weatherData">
+            <ul class="has-text-grey">
+                <li id="name">{{weatherDataCity.name}}</li>
+                <li id="temp" v-if="cityName">{{weatherDataMain.temp}} <small>&#8451;</small></li>
+                <li id="type">{{weatherDataWeather.main}}</li>
+                <li id="desc" class="has-text-grey-light">{{weatherDataWeather.description}}</li>
+            </ul>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
